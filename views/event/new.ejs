@@ -1,0 +1,87 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-9 mainContainer">
+			<div class="row ">
+				<div class="col-sm-5 searchContainer">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="panel panel-post-item ">
+						<div class="panel-head">
+
+							<div  [hidden]="submitted">
+								<h1>Créer un évènement</h1>
+								<form (ngSubmit)="create()" #newEventForm="ngForm">
+									<h4>Donnée de l'évènement</h4>
+									<hr />
+									<div class="form-group">
+										<label for="title">Titre</label>
+										<input id="title" type="text" class="form-control" required [(ngModel)]="model.title" ngControl="name"  #name="ngForm" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Titre requis
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="description">Description</label>
+										<input  id="description" type="text" class="form-control" required [(ngModel)]="model.description" ngControl="description" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Description requis
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="nbPlace">Nombe de places</label>
+										<input  id="nbPlace" type="text" class="form-control" required [(ngModel)]="model.nbPlace" ngControl="nbPlace" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Veuillez préciser le nombre de place dispo.
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="frequence">Fréquence</label>
+										<input  id="frequence" type="text" class="form-control" required [(ngModel)]="model.frequence" ngControl="frequence" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Veuillez préciser la fréquence.
+										</div>
+									</div>
+									<h4>Adresse de RDV</h4>
+									<hr />
+									<div class="form-group">
+										<label for="streetPlace">Rue</label>
+										<input  id="streetPlace" type="text" class="form-control" required [(ngModel)]="model.streetPlace" ngControl="streetPlace" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Veuillez préciser la rue.
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="zipCode">Code postal</label>
+										<input  id="zipCode" type="text" class="form-control" required [(ngModel)]="model.zipCode" ngControl="zipCode" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Veuillez préciser le code postal.
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="city">Ville</label>
+										<input  id="city" type="text" class="form-control" required [(ngModel)]="model.city" ngControl="city" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Veuillez préciser la ville.
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="date">Date</label>
+										<input  id="date" type="date" class="form-control" required [(ngModel)]="model.date" ngControl="date" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Veuillez préciser la date.
+										</div>
+									</div>
+
+									<button type="submit" class="btn btn-default" [disabled]="!newEventForm.form.valid">Submit</button>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

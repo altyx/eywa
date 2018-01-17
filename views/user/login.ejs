@@ -1,0 +1,42 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 mainContainer">
+            <div class="row ">
+                <div class="col-sm-5 searchContainer">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-post-item ">
+                        <div class="panel-head">
+
+                            <div  [hidden]="submitted">
+                                <h1>Connexion</h1>
+                                <form (ngSubmit)="login()" #loginForm="ngForm">
+
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input id="email" type="text" class="form-control" required [(ngModel)]="model.email" ngControl="name"  #name="ngForm" >
+                                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                            Email requis
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input  id="password" type="password" class="form-control" required [(ngModel)]="model.password" ngControl="password" >
+                                        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                            Mot de passe requis
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-default" [disabled]="!loginForm.form.valid">Submit</button>
+                                </form>
+                            </div>
+
+                        </div>
+                        <a [routerLink]="['Signup']">Inscription</a>
+                    </div>
+                </div>
+            </div>
+        </div>

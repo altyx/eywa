@@ -1,0 +1,59 @@
+
+		<div class="col-sm-9 mainContainer">
+			<div class="row ">
+				<div class="col-sm-5 searchContainer">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Rechercher:</label>
+						<input type="text" class="form-control" placeholder="Rechercher">
+					</div>
+					<div>
+						<a [routerLink]="['CreateEvent']">Créer un evenement</a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12" *ngFor="#event of Events; #i = index">
+					<div class="panel panel-post-item ">
+						<div class="panel-head">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img alt="" src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" class="media-object img-circle">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">Dupond Pierre</h4>
+									<p class="media-usermeta">
+										<span class="media-time">{{event.updateAt}}</span>
+									</p>
+								</div>
+							</div><!-- media -->
+						</div><!-- panel-heading -->
+						<div class="options">{{event.city}}, le {{event.date}}. <span class="text-right">Nb places restantes: {{event.nbPlace}}</span></div>
+						<div class="panel-body nopaddingbottom">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object width80" src="http://blog.thalasseo.com/wp-content/uploads/2015/08/Running.jpg" alt="">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">
+										<a class="inline" attr.rel="group{{i}}" href="#data{{i}}">{{ event.title}}</a>
+									</h4>
+									<p>
+										{{ event.description }}
+									</p>
+									<div style="display:none">
+										<div id="data{{i}}" class="inline" attr.rel="group{{i}}" >{{ event.description}}</div>
+									</div>
+								</div>
+								<div class="buttons">
+									<input type="button" class="btn-info form-control" value="M'inscrire" (click)="inscription(event.id)"/>
+								</div>
+							</div>
+						</div><!-- panel-body -->
+					</div><!-- panel panel-post -->
+				</div>
+			</div>
+		</div>

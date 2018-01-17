@@ -1,0 +1,57 @@
+
+		<div class="col-sm-9 mainContainer">
+			<div class="row ">
+				<div class="col-sm-5 searchContainer">
+					<div  [hidden]="submitted">
+						<form (ngSubmit)="create()" #newPartage="ngForm">
+							<h4>Espace partage</h4>
+							<hr />
+							<div class="form-group">
+								<input id="title" type="text" class="form-control" required [(ngModel)]="model.content" ngControl="name"  #name="ngForm" placeholder="Partager quelque chose ..." >
+								<button type="submit" class="btn btn-default" [disabled]="!newPartage.form.valid">Partager</button>
+								<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+									Un contenu est requis
+
+								</div>
+							</div>
+
+						</form>
+
+				</div>
+			</div>
+</div>
+			<div class="row" *ngFor="#partage of Partages">
+				<div class="col-sm-12">
+					<div class="panel panel-post-item ">
+						<div class="panel-head">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img alt="" src="https://cdn3.iconfinder.com/data/icons/rcons-user-action/32/boy-512.png" class="media-object img-circle">
+									</a>
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading">Dupond Pierre</h4>
+									<p class="media-usermeta">
+										<span class="media-time">15 juillet 2015</span>
+									</p>
+								</div>
+							</div><!-- media -->
+						</div><!-- panel-heading -->
+						<div class="options">Le 26/04/2016 à 14h14</div>
+						<div class="panel-body nopaddingbottom">
+							<div class="media">
+								<div class="media-left">
+									<a href="#">
+										<img class="media-object width80" src="http://blog.thalasseo.com/wp-content/uploads/2015/08/Running.jpg" alt="">
+									</a>
+								</div>
+								<div class="media-body">
+									<p>{{partage.content}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>

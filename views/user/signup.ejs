@@ -1,0 +1,81 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-9 mainContainer">
+			<div class="row ">
+				<div class="col-sm-5 searchContainer">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="panel panel-post-item ">
+						<div class="panel-head">
+
+							<div  [hidden]="submitted">
+								<h1>Connexion</h1>
+								<form (ngSubmit)="inscription()" #loginForm="ngForm">
+									<div class="form-group">
+										<label for="firstName">nom</label>
+										<input id="firstName" type="text" class="form-control" required [(ngModel)]="model.firstName" ngControl="name"  #name="ngForm" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											nom requis
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="lastName">prenom</label>
+										<input id="lastName" type="text" class="form-control" required [(ngModel)]="model.lastName" ngControl="name"  #name="ngForm" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											prénom requis
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="email">Email</label>
+										<input id="email" type="text" class="form-control" required [(ngModel)]="model.email" ngControl="name"  #name="ngForm" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Email requis
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="phone">Téléphone</label>
+										<input id="phone" type="text" class="form-control" required [(ngModel)]="model.phone" ngControl="name"  #name="ngForm" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											téléphone requis
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="mobile">mobile</label>
+										<input id="mobile" type="text" class="form-control" required [(ngModel)]="model.mobile" ngControl="name"  #name="ngForm" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											mobile requis
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label for="password">Mot de passe</label>
+										<input  id="password" type="password" class="form-control" required [(ngModel)]="model.password" ngControl="password" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Mot de passe requis
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="password">Confirmer le mot de passe</label>
+										<input  id="password" type="password" class="form-control" required [(ngModel)]="model.password" ngControl="password" >
+										<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+											Mot de passe requis
+										</div>
+									</div>
+									<div class="form-group">
+									<div class="g-recaptcha" data-sitekey="6LfPOSETAAAAAF_nS_d29Q_yReOU5f0LSHlnz25Q"></div>
+								</div>
+									<button type="submit" class="btn btn-default" [disabled]="!loginForm.form.valid">Submit</button>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
